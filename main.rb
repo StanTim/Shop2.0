@@ -30,6 +30,29 @@ end
 
 puts "Спасибо за покупки, с Вас #{total_price} руб."
 
+#Массив возможных товаров:
+product_list = ['book', 'movie', 'disk']
+
+puts 'Какой товар хотите добавить?'
+
+#Выведем массив товаров в виде нумерованного списка:
+product_list.each do |item|
+  puts "#{product_list.index(item)}: #{item}"
+end
+puts
+# Попросим пользователя добавить товар
+
+usel_sel = STDIN.gets.chomp
+case usel_sel
+when '0'
+  Book.new.to_xml
+when 1
+when 2
+else
+  puts "Ожидалось от 0 до #{product_list.length}"
+
+end
+
 
   #puts Product
 
