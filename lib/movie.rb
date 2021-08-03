@@ -11,4 +11,9 @@ class Movie < Product
   def info
     %(Фильм "#{@movie}", #{@director} (#{@year}))
   end
+
+  def self.to_xml
+
+  end
+
 end

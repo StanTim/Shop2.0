@@ -3,21 +3,27 @@
 # автор - Stanislav A. Timanov
 #
 # Подключение библиотеки чтения *.xml
+
 require 'rexml/document'
+#require_relative 'disk.rb'
+#require_relative 'product.rb'
+#require_relative 'movie.rb'
+#require_relative 'book.rb'
 
 class Product
   attr_reader :product_list
   attr_reader :doc
   attr_reader :price
   attr_reader :amount
+  attr_reader :file_name
   #attr_writer :file
 
   def initialize (price, amount)
     @price = price
-    @amount = 0
-    @file = '/shop.xml'
+    @amount = amount
+    @file = '/shop3.0.xml'
     @doc = doc
-    @file_name
+    @file_name = ''
     @product_list = []
   end
 
@@ -25,10 +31,10 @@ class Product
 
   if @file != nil
     @file_name = current_path + @file
-    abort "Файл #{@file}.xml не найден." unless File.exist?(@file_name)
+    abort "Файл #{@file} не найден." unless File.exist?(@file_name)
   else
-    @file_name = current_path + "/shop.xml"
-    abort "Файл shop.xml не найден." unless File.exist?(@file_name)
+    @file_name = current_path + "/shop3.0.xml"
+    abort "Файл shop3.0.xml не найден." unless File.exist?(@file_name)
   end
 
 
@@ -72,6 +78,9 @@ class Product
     end
   end
 
+  def product_input
+
+  end
 
 # Создадим статический метод, для вызова чтения файлов
 # из главной программы
@@ -127,5 +136,8 @@ class Product
     return @product_list
   end
 
+  def self.to_xml
+    #doc.write(f, 2)
+  end
 
 end

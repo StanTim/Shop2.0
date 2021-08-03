@@ -11,4 +11,9 @@ class Disk < Product
   def info
     %(Диск: #{@artist} - "#{@album}"" (#{@style}))
   end
+
+  def self.to_xml
+
+  end
+
 end
