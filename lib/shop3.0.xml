@@ -13,9 +13,6 @@
     <disk artist='Judas Priest' album='Ram It Down' style='Heavy Metal'/>
   </product>
   <product price='500' amount='2'>
-    <movie movie='Пролетая над грездом кукушки' director='Милош Форман' year='1975'/>
-  </product>
-  <product price='1111' amount='5'>
-    <book/>
+    <movie movie='Пролетая над гнездом кукушки' director='Милош Форман' year='1975'/>
   </product>
 </products>

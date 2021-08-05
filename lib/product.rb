@@ -136,8 +136,10 @@ class Product
     return @product_list
   end
 
-  def self.to_xml
-    #doc.write(f, 2)
+  def to_xml(options)
+    @file_name = File.dirname(__FILE__) + '/shop3.0.xml'
+    xml_file = File.read(@file_name, encoding: 'UTF-8')
+    doc = REXML::Document.new(xml_file)
   end
 
 end

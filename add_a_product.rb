@@ -6,6 +6,15 @@ require_relative 'lib/movie'
 
 require 'rexml/document'
 
+if (Gem.win_platform?)
+  Encoding.default_external = Encoding.find(Encoding.locale_charmap)
+  Encoding.default_internal = __ENCODING__
+
+  [STDIN, STDOUT].each do |io|
+    io.set_encoding(Encoding.default_external, Encoding.default_internal)
+  end
+end
+
 #Массив возможных товаров:
 product_list = [Book, Movie, Disk]
 
@@ -22,32 +31,19 @@ puts 'Введите стоимость'
 price = STDIN.gets.chomp
 puts 'Введите остаток на складе'
 amount = STDIN.gets.chomp
-Product.read_from_xml
+#Product.read_from_xml
 prod = product_list[user_sel.to_i].new(price, amount)
 options = prod.product_input
 prod.update(options)
 #puts options.to_s
-#puts prod.info
-prod.to_xml
+puts prod.update(options).to_s
+puts prod.info
+prod.to_xml(options)
 
 # Попросим пользователя добавить товар
 =begin
 
-case user_sel
-when '0'
-  book = Book.new(price, amount)
-  book.product_input
-  attributes = {title => 'title',
-                author => 'author'
-  }
-  book.update(attributes)
-  book.to_xml(Product.read_from_xml)
-when '1'
-  Movie.new().to_xml
-when '2'
-  Disk.new().to_xml
 else
   puts "Ошибка! Вы ввели #{user_sel}"
   puts "введите число от 0 до #{product_list.length}"
 =end
-#end
