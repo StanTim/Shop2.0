@@ -15,4 +15,16 @@
   <product price='500' amount='2'>
     <movie movie='Пролетая над гнездом кукушки' director='Милош Форман' year='1975'/>
   </product>
-gigigigosgfisopgf</products>
+  <product price='13200' amount='3'>
+    <book title='Война и Мир' author='Лев Толстой'/>
+  </product>
+  <product price='450' amount='5'>
+    <book title='Избранное' author='С. Есенин'/>
+  </product>
+  <product price='500' amount='12'>
+    <disk artist='Queen' album='In Utero' style='Hard Rock'/>
+  </product>
+  <product price='600' amount='3'>
+    <disk movie='Криминальное чтиво' director='К. Таррантино' year='1994'/>
+  </product>
+</products>

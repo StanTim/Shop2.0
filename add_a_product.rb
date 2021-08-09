@@ -1,8 +1,8 @@
 # Добавление продуктов в *.xml файл
 require_relative 'lib/product.rb'
-require_relative 'lib/book'
-require_relative 'lib/disk'
-require_relative 'lib/movie'
+require_relative 'lib/disk.rb'
+require_relative 'lib/movie.rb'
+require_relative 'lib/book.rb'
 
 require 'rexml/document'
 

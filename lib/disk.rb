@@ -12,8 +12,37 @@ class Disk < Product
     %(Диск: #{@artist} - "#{@album}"" (#{@style}))
   end
 
-  def self.to_xml
+  def product_input
+    puts 'Введите исполнителя'
+    @artist = STDIN.gets.chomp
+    puts 'Введите название альбома'
+    @album = STDIN.gets.chomp
+    puts 'Введите направление музыки'
+    @style = STDIN.gets.chomp
 
   end
+
+  def to_xml(options)
+
+    doc = super
+
+    el = doc.root.add_element('product', {
+        'price' => @price,
+        'amount' => @amount
+    })
+
+    el.add_element('disk', {
+        'artist' => @artist,
+        'album' => @album,
+        'style' => @style
+    })
+
+    file = File.new(@file_name, "w:UTF-8")
+    doc.write(file, 2)
+    file.close
+
+
+
+end
 
 end
