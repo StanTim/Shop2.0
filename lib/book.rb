@@ -20,18 +20,12 @@ class Book < Product
     @author = STDIN.gets.chomp
     puts 'Введите название книги'
     @title = STDIN.gets.chomp
-    return {
-        @title => 'title',
-        @author => 'author'
-    }
 
   end
 
   def to_xml(options)
 
     doc = super
-
-    #xml_file.close
 
     el = doc.root.add_element('product', {
         'price' => @price,
@@ -46,7 +40,6 @@ class Book < Product
     file = File.new(@file_name, "w:UTF-8")
     doc.write(file, 2)
     file.close
-
   end
 
 end

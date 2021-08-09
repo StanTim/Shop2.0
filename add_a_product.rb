@@ -23,24 +23,27 @@ puts 'Какой товар хотите добавить?'
 #Выведем массив товаров в виде нумерованного списка:
 product_list.each do |item|
   puts "#{product_list.index(item)}: #{item}"
-  end
+end
 
+
+# Попросим пользователя добавить товар
 user_sel = STDIN.gets.chomp
 
 puts 'Введите стоимость'
 price = STDIN.gets.chomp
 puts 'Введите остаток на складе'
 amount = STDIN.gets.chomp
-#Product.read_from_xml
+
+
+#Создадим новый экземпляр продукта,
+#соответствующий выбору пользователя.
+
 prod = product_list[user_sel.to_i].new(price, amount)
+
 options = prod.product_input
-prod.update(options)
-#puts options.to_s
-puts prod.update(options).to_s
-puts prod.info
+
 prod.to_xml(options)
 
-# Попросим пользователя добавить товар
 =begin
 
 else

@@ -12,30 +12,25 @@ require 'rexml/document'
 
 class Product
   attr_reader :product_list
-  attr_reader :doc
-  attr_reader :price
-  attr_reader :amount
+  attr_accessor :doc
+  attr_accessor :price
+  attr_accessor :amount
   attr_reader :file_name
   #attr_writer :file
 
   def initialize (price, amount)
     @price = price
     @amount = amount
-    @file = '/shop3.0.xml'
     @doc = doc
     @file_name = ''
     @product_list = []
   end
 
   current_path = File.dirname(__FILE__)
+  file_path = current_path + "/shop3.0.xml"
 
-  if @file != nil
-    @file_name = current_path + @file
-    abort "Файл #{@file} не найден." unless File.exist?(@file_name)
-  else
-    @file_name = current_path + "/shop3.0.xml"
-    abort "Файл shop3.0.xml не найден." unless File.exist?(@file_name)
-  end
+  #abort "Файл #{@file} не найден." unless File.exist?(@file_name)
+
 
 
   def update(options)
@@ -140,6 +135,9 @@ class Product
     @file_name = File.dirname(__FILE__) + '/shop3.0.xml'
     xml_file = File.read(@file_name, encoding: 'UTF-8')
     doc = REXML::Document.new(xml_file)
+
+
+
   end
 
 end
